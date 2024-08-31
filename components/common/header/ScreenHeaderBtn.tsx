@@ -5,7 +5,7 @@ import styles from './screenheader.style'
 interface ScreenHeaderBtn {
   iconUrl: ImageSourcePropType;
   dimension: string;
-  handlePress: any;
+  handlePress?: any;
 }
 const ScreenHeaderBtn = ({iconUrl,dimension,handlePress}:ScreenHeaderBtn) => {
   return (

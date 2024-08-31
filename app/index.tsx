@@ -7,6 +7,7 @@ import Icons from "@/constants/Icons";
 import Welcome from "@/components/home/welcome/Welcome";
 import Popularjobs from "@/components/home/popular/Popularjobs";
 import Nearbyjobs from "@/components/home/nearby/Nearbyjobs";
+import Images from "@/constants/Images";
 export default function Home() {
   const router = useRouter();
   return (
@@ -17,17 +18,17 @@ export default function Home() {
         headerStyle: {backgroundColor:COLORS.lightWhite},
         headerShadowVisible:false,
         headerLeft: () => (
-          <ScreenHeaderBtn/>
+          <ScreenHeaderBtn iconUrl={Icons.menu} dimension="60%" />
         ),
         headerRight: () => (
-          <ScreenHeaderBtn/>
+          <ScreenHeaderBtn  iconUrl={Images.profile} dimension="100%" />
         ),
         headerTitle:''
       }}>
       </Stack.Screen>
       <ScrollView>
         <View style={{flex:1}}>
-          <Welcome/>
+          <Welcome name="azki"/>
           <Popularjobs/>
           <Nearbyjobs/>
         </View>

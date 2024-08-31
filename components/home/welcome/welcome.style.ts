@@ -56,17 +56,20 @@ const styles = StyleSheet.create({
     width: "100%",
     marginTop: SIZES.medium,
   },
-  tab: (activeJobType, item) => ({
+});
+
+const dynamicStyle = {
+  tab: (activeJobType: any, item: any) => ({
     paddingVertical: SIZES.small / 2,
     paddingHorizontal: SIZES.small,
     borderRadius: SIZES.medium,
     borderWidth: 1,
     borderColor: activeJobType === item ? COLORS.secondary : COLORS.gray2,
   }),
-  tabText: (activeJobType, item) => ({
+  tabText: (activeJobType: any, item: any) => ({
     fontFamily: FONT.medium,
     color: activeJobType === item ? COLORS.secondary : COLORS.gray2,
   }),
-});
+}
 
-export default styles;
+export default {styles,dynamicStyle};

@@ -3,10 +3,10 @@ import { View, Text } from 'react-native'
 
 import styles from './popularjobcard.style'
 
-const PopularJobCard = () => {
+const PopularJobCard = ({item}:{item:any})  => {
   return (
     <View>
-      <Text>PopularJobCard</Text>
+      <Text>item</Text>
     </View>
   )
 }

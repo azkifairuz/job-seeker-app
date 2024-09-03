@@ -1,15 +1,17 @@
 import { useState,useEffect } from "react";
 import axios from 'axios';
+import JobDetails from '@/type/jobType';
+
 
 const rapidApiKey = process.env.RAPID_API_KEY
 interface queryModel {
     query:string,
-    page: string,
+    page?: string,
     num_pages: string,
     date_posted?: string
 }
 const useFetch = (endpoint:string,query:queryModel) => {
-    const [data,setData] = useState([])
+    const [data,setData] = useState<JobDetails[]>([])
     const [isLoading,setIsLoading] = useState(false)
     const [isError,setIsError] = useState(false)
     const options = {
@@ -19,11 +21,11 @@ const useFetch = (endpoint:string,query:queryModel) => {
             ...query
         },
         headers: {
-          'x-rapidapi-key': rapidApiKey,
+          'x-rapidapi-key': "4720219523msh82d46b1027264a9p1da08ajsnf4060e5fb7a4",
           'x-rapidapi-host': 'jsearch.p.rapidapi.com'
         }
       };
-
+      
     const fetchData = async () => {
         setIsLoading(true)
         try {
@@ -32,6 +34,7 @@ const useFetch = (endpoint:string,query:queryModel) => {
             setIsLoading(false)
         } catch (error) {
             setIsError(true)
+
             alert("there is an error")
         } finally{
             setIsLoading(false)
@@ -50,3 +53,5 @@ const useFetch = (endpoint:string,query:queryModel) => {
 
     return {data,isLoading,isError,refetch}
 }
+
+export default useFetch

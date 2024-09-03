@@ -5,15 +5,23 @@ import {
   TouchableOpacity,
   ActivityIndicator,
   FlatList,
+  Alert,
 } from "react-native";
+import useFetch from "@/hooks/useFetch"
 
 import styles from "./popularjobs.style";
 import { COLORS, SIZES } from "@/constants/Themes";
 import PopularJobCard from "@/components/common/cards/popular/PopularJobCard";
 
 const Popularjobs = () => {
-  const [isLoading, setisLoading] = useState(false);
-  const error = false;
+  const {data,isLoading,isError} = useFetch('search',{
+    query:"React Developer",
+    num_pages: "1"
+  })
+  const [selectedJobId, setSelectedJobId] = useState<string | null>(null);
+  const handleSelectJob = (job_id: string) => {
+    setSelectedJobId(job_id);
+  };
   return (
     <View>
       <View style={styles.header}>
@@ -26,14 +34,15 @@ const Popularjobs = () => {
       <View style={styles.cardsContainer}>
         {isLoading ? (
           <ActivityIndicator size="large" color={COLORS.primary} />
-        ) : error ? (
+        ) : isError ? (
           <Text>Something went wrong</Text>
         ) : (
           <FlatList 
-          data={[1, 2, 3, 4]}
+          data={data}
           renderItem={({item}) => (
-            <PopularJobCard item={item}/>
+           <PopularJobCard item={item} selectedJob={selectedJobId} handleCardPress={() => {}}/> 
           )}
+          keyExtractor={data => data.job_id}
           contentContainerStyle={{columnGap:SIZES.medium}}
           horizontal />
         )

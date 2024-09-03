@@ -5,6 +5,7 @@ import { COLORS, FONT, SIZES } from "@/constants/Themes";
 const styles = StyleSheet.create({
   container: {
     width: "100%",
+    marginBottom:SIZES.xLarge
   },
   userName: {
     fontFamily: FONT.regular,
@@ -55,6 +56,8 @@ const styles = StyleSheet.create({
   tabsContainer: {
     width: "100%",
     marginTop: SIZES.medium,
+    marginBottom: SIZES.large,
+    
   },
 });
 

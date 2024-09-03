@@ -26,7 +26,7 @@ export default function Home() {
         headerTitle:''
       }}>
       </Stack.Screen>
-      <ScrollView>
+      <ScrollView showsVerticalScrollIndicator={false}>
         <View style={{flex:1}}>
           <Welcome name="azki"/>
           <Popularjobs/>

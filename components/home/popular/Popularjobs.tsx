@@ -14,7 +14,7 @@ import { COLORS, SIZES } from "@/constants/Themes";
 import PopularJobCard from "@/components/common/cards/popular/PopularJobCard";
 
 const Popularjobs = () => {
-  const {data,isLoading,isError} = useFetch('search',{
+  const {data,isLoading,isError} = useFetch.useFetch('search',{
     query:"React Developer",
     num_pages: "1"
   })
@@ -27,7 +27,7 @@ const Popularjobs = () => {
       <View style={styles.header}>
         <Text style={styles.headerTitle}>Popular jobs</Text>
         <TouchableOpacity>
-          <Text style={styles.headerBtn}>Popular jobs</Text>
+          <Text style={styles.headerBtn}>All Popular jobs</Text>
         </TouchableOpacity>
       </View>
 
